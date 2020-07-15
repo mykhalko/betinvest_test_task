@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <style>
+        table {
+            border: 1px solid gray;
+            font-size: 15px;
+
+        }
+
+        th, td {
+            border: 1px solid gray;
+            padding: 3px 5px;
+        }
+
+        td {
+            font-weight: normal;
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+{% for section in data %}
+<h3>{{section.name}}</h3>
+<table>
+    <tr>
+        <th>Номер</th>
+        <th>Название</th>
+        <th>Начало</th>
+        <th>Счет</th>
+        <th>Статус</th>
+        <th>Комментарии</th>
+    </tr>
+    {% for event in section.events%}
+    <tr>
+        <td>{{event.id}}</td>
+        <td>{{event.name}}</td>
+        <td>{{event.start_time}}</td>
+        <td>{{event.score}}</td>
+        <td>{{event.status}}</td>
+        <td>{{event.comment1}} ; {{event.comment2}} ; {{event.comment3}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endfor %}
+</body>
+</html>
